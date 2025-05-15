@@ -1,39 +1,66 @@
 #include <stdio.h>
 
+// Função recursiva para movimentação da Torre
+void Torre(int t){
+    if (t <= 0) return;  //Quando t for <= a 0, a função retorna sem fazer nada
+        printf ("Torre: Direita\n");
+        Torre (t - 1);
+}
+
+// Função recursiva para movimentação do Bispo
+void Bispo(int b){
+    if (b <= 0) return;  ////Quando b for <= a 0, a função retorna sem fazer nada
+
+        for (int vertical = 1; vertical <= 1; vertical++){
+            printf ("Bispo: Cima, ");
+            
+            for (int horizontal = 1; horizontal <= 1; horizontal++){
+                printf ("Direita\n");
+            }
+        }
+
+        Bispo (b - 1);
+}
+
+// Função recursiva para movimentação da Rainha
+void Rainha(int r){
+    if (r <= 0) return; //Quando r for <= a 0, a função retorna sem fazer nada
+        printf ("Rainha: Esquerda\n");
+        Rainha (r - 1);
+}
+
+// Função recursiva para movimentação do Cavalo
+void Cavalo(int c){
+    if (c <= 0) return; //Quando c for <= a 0, a função retorna sem fazer nada
+
+        printf ("Cavalo: ");
+
+        for (int i = 1; i <= 3; i++){
+            if (i <= 2) {
+                printf ("Cima, ");
+                continue;
+            }
+            printf ("Direita\n");
+        }
+        Cavalo (c - 1);
+}
+
 int main() {
 
- int torre, bispo, rainha, t = 1, b = 1, c = 1;
-
     //Movimentação da Torre
-    while (t <= 5){
-        printf ("Torre: Direita\n");
-        t++;
-    }
-    printf ("\n");
+    Torre(5);
+    printf ("\n"); 
 
     //Movimentação do Bispo
-    do {
-        printf ("Bispo: Cima, Direita\n");
-        b++;
-    } while (b <= 5);
+    Bispo(5);
     printf ("\n");
 
     //Movimentação da Rainha
-    for (int i = 1; i <= 8; i++){
-        printf ("Rainha: Esquerda\n");
-    }
+    Rainha(8);
     printf ("\n");
-
+   
     //Movimentação do Cavalo
-    
-    while (c <= 5){
-        printf ("Cavalo: ");
-        for (int j = 1; j <= 2; j++){
-            printf ("Baixo, ");
-        }
-        printf ("Esquerda\n");
-        c++;
-    }
+    Cavalo(5);
     printf ("\n");
 
     return 0;
